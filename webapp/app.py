@@ -12,7 +12,15 @@ DBUSER = os.environ.get("DBUSER") or "root"
 DBPWD = os.environ.get("DBPWD") or "passwors"
 DATABASE = os.environ.get("DATABASE") or "employees"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
-DBPORT = int(os.environ.get("DBPORT"))
+DBPORT = os.environ.get("DBPORT")
+if DBPORT is not None:
+    try:
+        DBPORT = int(DBPORT)
+    except ValueError:
+        print("Invalid value for DBPORT. Using default port.")
+        DBPORT = 3306
+else:
+    DBPORT = 3306
 
 # Create a connection to the MySQL database
 db_conn = connections.Connection(
