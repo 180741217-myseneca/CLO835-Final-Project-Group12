@@ -13,7 +13,7 @@ DBPWD = os.environ.get("DBPWD") or "passwors"
 DATABASE = os.environ.get("DATABASE") or "employees"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
 DBPORT = os.environ.get("DBPORT")
-s3= "https://rpamnani-clo835-final.s3.amazonaws.com/hand-painted-watercolor-pastel-sky-background_23-2148902771.avif"
+s3=os.environ.get("s3url")
 
 
 if DBPORT is not None:
