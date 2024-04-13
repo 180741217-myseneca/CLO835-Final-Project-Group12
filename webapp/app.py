@@ -13,6 +13,9 @@ DBPWD = os.environ.get("DBPWD") or "passwors"
 DATABASE = os.environ.get("DATABASE") or "employees"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
 DBPORT = os.environ.get("DBPORT")
+s3= "https://rpamnani-clo835-final.s3.amazonaws.com/hand-painted-watercolor-pastel-sky-background_23-2148902771.avif"
+
+
 if DBPORT is not None:
     try:
         DBPORT = int(DBPORT)
@@ -55,11 +58,11 @@ COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lim
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('addemp.html', color=color_codes[COLOR])
+    return render_template('addemp.html', color=color_codes[COLOR], image=s3)
 
 @app.route("/about", methods=['GET','POST'])
 def about():
-    return render_template('about.html', color=color_codes[COLOR])
+    return render_template('about.html', color=color_codes[COLOR], image=s3)
     
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
@@ -141,4 +144,4 @@ if __name__ == '__main__':
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
         exit(1)
 
-    app.run(host='0.0.0.0',port=8081,debug=True)
+    app.run(host='0.0.0.0',port=81,debug=True)
