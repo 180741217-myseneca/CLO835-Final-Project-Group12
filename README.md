@@ -1,7 +1,14 @@
 # CLO835-Final-Project-Group12
 ## Deployment of 2-tiered web application to managed K8s cluster on Amazon EKS, with pod auto-scaling and deployment automation.
 
-### EKS cluster build -Prerequsites
+### Prerequsites
+```bash
+Create image add put that image to s3 bucket
+webapp,mysql image move to the ecr using github workflow
+
+```
+
+### EKS cluster build 
 ```bash
 export AWS_ACCESS_KEY_ID="In your AWS details"
 export AWS_SECRET_ACCESS_KEY="In your AWS details+"
