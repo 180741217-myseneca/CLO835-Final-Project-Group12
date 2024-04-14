@@ -25,7 +25,7 @@ Check kubectl version -kubectl version --client
 Check eksctl version -kubectl
 
 Run the command
-kubectl apply -f eks_config.yaml
+eksctl create cluster -f eks_config.yaml
 ```
 ### Commands to run the application in EKS cluster
 ```bash
