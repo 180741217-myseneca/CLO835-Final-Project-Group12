@@ -10,11 +10,12 @@ CLO835-Final Project -Group12
 ```bash
 cd mainfest
 kubectl create namespace final
-kubectl apply -f service-account.yaml -n final
-kubectl apply -f secret.yaml -n final
-kubectl apply -f mysql_deployment.yaml -n final
-kubectl apply -f mysql_clusterip.yaml -n final
-kubectl apply -f ConfigMap.yaml -n final
-kubectl apply -f webapp_deployment.yaml -n final
+kubectl apply -f ServiceAccount.yaml -n final
+kubectl apply -f mysql_secret.yaml -n final
+kubectl apply -f mysqldeployment.yaml -n final
+kubectl apply -f mysqlclusterip.yaml -n final
+kubectl apply -f Configmaps.yaml -n final
+kubectl apply -f Configmaps.yaml -n finaL
+kubectl apply -f web_nodeport.yaml -n final
 kubectl apply -f webapp_lb.yaml -n final
 kubectl apply -f hpa_config.yaml -n final
