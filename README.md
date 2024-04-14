@@ -11,7 +11,7 @@ CLO835-Final Project -Group12
 cd mainfest
 kubectl create namespace final
 kubectl apply -f ServiceAccount.yaml -n final
-kubectl apply -f mysql_secret.yaml -n final
+kubectl apply -f mysql_secrets.yaml -n final
 kubectl apply -f mysqldeployment.yaml -n final
 kubectl apply -f mysqlclusterip.yaml -n final
 kubectl apply -f configmaps.yaml -n final
