@@ -34,7 +34,7 @@ kubectl create namespace final
 kubectl apply -f ServiceAccount.yaml -n final
 kubectl apply -f mysql_secrets.yaml -n final
 kubectl apply -f configmaps.yaml -n final
-kubectl apply -f pvc -n final
+kubectl apply -f pvc.yaml -n final
 kubectl apply -f mysqldeployment.yaml -n final
 kubectl apply -f mysqlclusterip.yaml -n final
 kubectl apply -f web_nodeport.yaml -n final
