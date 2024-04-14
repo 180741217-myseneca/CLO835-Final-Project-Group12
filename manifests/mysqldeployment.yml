@@ -17,7 +17,7 @@ spec:
         app: mysql
         component: backend
     spec:
-      serviceAccountName:   # Assign the created ServiceAccount
+      serviceAccountName: clo835-group12   # Assign the created ServiceAccount
       containers:
       - name: mysql-db
         image: 487784775349.dkr.ecr.us-east-1.amazonaws.com/clo835_group12:dbv1.0
@@ -27,11 +27,16 @@ spec:
               secretKeyRef:
                 name: mysql-secrets
                 key: mysql-root-password
-          - name: MYSQL_USER
+          - name: MYSQL_DATABASE_USER
             valueFrom:
               secretKeyRef:
                 name: mysql-secrets
                 key: mysql-database-user
+          - name: DBNAME
+            valueFrom:
+              configMapKeyRef:
+            name: configmaps
+            key: DBNAME      
        
         ports:
         - containerPort: 3306

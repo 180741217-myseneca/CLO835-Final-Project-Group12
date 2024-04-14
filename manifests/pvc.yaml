@@ -4,7 +4,7 @@ metadata:
   name: mysql-pvc
   labels:
     name: mysql-pvc
-  namespace: final
+  namespace: final-project
 spec:
   storageClassName: gp2
   resources:

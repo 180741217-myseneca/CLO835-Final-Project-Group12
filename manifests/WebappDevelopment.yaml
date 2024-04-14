@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-development
+  namespace: final-project
+  labels:
+    app: employees
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employees
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: employees
+        version: v1
+    spec:
+      containers:
+      - name: employee-webapp
+        image: 487784775349.dkr.ecr.us-east-1.amazonaws.com/clo835_group12:appv1.0
+        ports:
+        - containerPort: 81
+        env:
+         - name: DBHOST
+              valueFrom:
+                configMapKeyRef:
+                  name: employees
+                  key: DBHOST
+          - name: DBPORT
+              valueFrom:
+                configMapKeyRef:
+                  name: employees
+                  key: DBPORT
+          - name: DBNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: employees
+                  key: DBNAME
+            
+          - name: background-image-url
+              valueFrom:
+                configMapKeyRef:
+                  name: employees
+                  key: background-image-url
+           
+          - name: DBPWD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: mysql-root-password
+          - name: DBUSER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key:  mysql-database-user 
+        
+
+
+          
+          
