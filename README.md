@@ -7,7 +7,7 @@ CLO835-Final Project -Group12
 
 
 ### Commands to run the application
-
+```bash
 cd mainfest
 kubectl create namespace final
 kubectl apply -f service-account.yaml -n final
