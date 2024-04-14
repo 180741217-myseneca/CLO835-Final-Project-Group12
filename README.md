@@ -14,8 +14,8 @@ kubectl apply -f ServiceAccount.yaml -n final
 kubectl apply -f mysql_secret.yaml -n final
 kubectl apply -f mysqldeployment.yaml -n final
 kubectl apply -f mysqlclusterip.yaml -n final
-kubectl apply -f Configmaps.yaml -n final
-kubectl apply -f Configmaps.yaml -n finaL
+kubectl apply -f configmaps.yaml -n final
 kubectl apply -f web_nodeport.yaml -n final
+kubectl apply -f WebappDeployment.yaml -n finaL
 kubectl apply -f webapp_lb.yaml -n final
 kubectl apply -f hpa_config.yaml -n final
