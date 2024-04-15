@@ -2,22 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: final
   labels:
     app: mysql
     component: backend
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
       component: backend
-  replicas: 1
   template:
     metadata:
       labels:
         app: mysql
         component: backend
     spec:
-      serviceAccountName: clo835-group12   # Assign the created ServiceAccount
+      serviceAccountName: clo835   # Assign the created ServiceAccount
       containers:
       - name: mysql-db
         image: 487784775349.dkr.ecr.us-east-1.amazonaws.com/clo835_group12:dbv1.0
@@ -35,9 +36,8 @@ spec:
           - name: DBNAME
             valueFrom:
               configMapKeyRef:
-            name: configmaps
-            key: DBNAME      
-       
+                name: configmap-g12
+                key: DBNAME      
         ports:
         - containerPort: 3306
           protocol: TCP

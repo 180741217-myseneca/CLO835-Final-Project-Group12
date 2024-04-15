@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-development
-  namespace: final-project
+  namespace: final
   labels:
     app: employees
     version: v1
@@ -24,40 +24,33 @@ spec:
         ports:
         - containerPort: 81
         env:
-         - name: DBHOST
-              valueFrom:
-                configMapKeyRef:
-                  name: employees
-                  key: DBHOST
-          - name: DBPORT
-              valueFrom:
-                configMapKeyRef:
-                  name: employees
-                  key: DBPORT
-          - name: DBNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: employees
-                  key: DBNAME
-            
-          - name: background-image-url
-              valueFrom:
-                configMapKeyRef:
-                  name: employees
-                  key: background-image-url
-           
-          - name: DBPWD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: mysql-root-password
-          - name: DBUSER
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secrets
-                  key:  mysql-database-user 
-        
-
-
-          
-          
+        - name: DBHOST
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-g12
+              key: DBHOST
+        - name: DBPORT
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-g12
+              key: DBPORT
+        - name: DBNAME
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-g12
+              key: DBNAME
+        - name: s3url
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-g12
+              key: s3url
+        - name: DBPWD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: mysql-root-password
+        - name: DBUSER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: mysql-database-user
