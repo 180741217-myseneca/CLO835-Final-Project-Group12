@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: employees
+data:
+  background-image-url: #from s3 bucket
+  DBHOST: "mysql.final-project.svc.cluster.local" #will get once mysql done
+  DBPORT: "3306"
+  DBNAME: "employees"
+  
